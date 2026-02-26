@@ -10,7 +10,7 @@ df = df[df.isna().sum(axis=1) < 2]
 # Assigining X, y variables
 X, y = df.drop('species', axis=1), df['species']
 # Create the ColumnTransformer for encoding
-ct = make_column_transformer((OneHotEncoder(), [___]), StandardScaler=___)
+ct = make_column_transformer((OneHotEncoder(), ['sex', 'island']), remainder = 'passthrough')
 # Make a Pipeline of ct, SimpleImputer, and StandardScaler
 pipe = make_pipeline(ct, SimpleImputer(strategy ='most_frequent'), StandardScaler())
 # Transform X using the pipeline and print transformed X
