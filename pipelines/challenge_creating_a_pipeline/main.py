@@ -14,5 +14,5 @@ ct = make_column_transformer((OneHotEncoder(), ['sex', 'island']), remainder = '
 # Make a Pipeline of ct, SimpleImputer, and StandardScaler
 pipe = make_pipeline(ct, SimpleImputer(strategy ='most_frequent'), StandardScaler())
 # Transform X using the pipeline and print transformed X
-X_transformed = pipe.fit_transform(df)
+X_transformed = pipe.fit_transform(X)
 print(X_transformed)
