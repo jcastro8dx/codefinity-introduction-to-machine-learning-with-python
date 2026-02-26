@@ -12,7 +12,7 @@ df = df[df.isna().sum(axis=1) < 2]
 X, y = df.drop('species', axis=1), df['species']
 # Encode the target
 label_enc = LabelEncoder()
-y = label_enc
+y = label_enc.fit_transform(y)
 # Create the ColumnTransformer for encoding features
 ct = make_column_transformer((OneHotEncoder, ['island', 'sex']), remainder = 'passtrhough')
 # Make a Pipeline of ct, SimpleImputer, and StandardScaler
