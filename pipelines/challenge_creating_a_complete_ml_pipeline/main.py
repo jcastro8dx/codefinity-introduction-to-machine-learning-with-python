@@ -14,7 +14,7 @@ X, y = df.drop('species', axis=1), df['species']
 label_enc = LabelEncoder()
 y = label_enc.fit_transform(y)
 # Create the ColumnTransformer for encoding features
-ct = make_column_transformer((OneHotEncoder, ['island', 'sex']), remainder = 'passtrhough')
+ct = make_column_transformer((OneHotEncoder(), ['island', 'sex']), remainder = 'passthrough')
 # Make a Pipeline of ct, SimpleImputer, and StandardScaler
 pipe = make_pipeline(ct, SimpleImputer(strategy='most_frequent'), StandardScaler(), KNeighborsClassifier())
 # Train the model
